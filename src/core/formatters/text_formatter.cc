@@ -32,7 +32,7 @@ void TextFormatter::aroundHookFailed(exception_ptr failure) const {
 void TextFormatter::dumpFailures(const list<exception_ptr>& failures) const {
   if (failures.empty())
     return;
-
+  TerminalColor color(COLOR_RED);
   output() << endl << "Failures:" << endl;
   for (auto failure : failures)
     outputException(failure);
@@ -48,6 +48,7 @@ void TextFormatter::outputException(exception_ptr failure) const {
   try {
     rethrow_exception(failure);
   } catch (const exception& e) {
+    TerminalColor color(COLOR_RED);
     output() << e.what() << endl;
   }
 }

@@ -31,6 +31,7 @@ void DocumentationFormatter::examplePassed(
     string desc,
     const ExecutionResult&) const {
   printIndentation();
+  TerminalColor color(COLOR_GREEN);
   output() << desc << endl;
 }
 
@@ -38,6 +39,7 @@ void DocumentationFormatter::exampleFailed(
     string desc,
     const ExecutionResult&) const {
   printIndentation();
+  TerminalColor color(COLOR_RED);
   output() << desc << " (FAILED) " << endl;
 }
 

@@ -6,6 +6,7 @@
 #include <ostream>
 
 #include "ccspec/core/formatter.h"
+#include "ccspec/core/formatters/terminal-colors.hpp"
 
 namespace ccspec {
 namespace core {

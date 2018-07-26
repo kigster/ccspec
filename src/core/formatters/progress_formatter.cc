@@ -12,10 +12,12 @@ using std::string;
 ProgressFormatter::ProgressFormatter(ostream& output) : TextFormatter(output) {}
 
 void ProgressFormatter::examplePassed(string, const ExecutionResult&) const {
+  TerminalColor color(COLOR_GREEN);
   output() << '.';
 }
 
 void ProgressFormatter::exampleFailed(string, const ExecutionResult&) const {
+  TerminalColor color(COLOR_RED);
   output() << 'F';
 }
 
