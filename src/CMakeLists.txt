@@ -1,4 +1,5 @@
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z -stdlib=libc++ ")
+
 file(GLOB_RECURSE SRC "*.h" "*.cc")
 add_library(ccspec SHARED ${SRC})
 set_target_properties(ccspec PROPERTIES VERSION "0.1.0")
