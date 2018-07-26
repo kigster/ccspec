@@ -3,6 +3,7 @@
 
 #include "core/example.h"
 #include "core/example_group.h"
+#include "core/example-group-manager.hpp"
 #include "core/formatter.h"
 #include "core/formatters.h"
 #include "core/hooks.h"

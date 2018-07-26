@@ -10,13 +10,14 @@ namespace spec {
 namespace core {
 
 using std::string;
+using ccspec::core::tag;
 using ccspec::core::describe;
 using ccspec::core::it;
 using ccspec::expect;
 using ccspec::core::UnexpectedThrow;
 using ccspec::matchers::eq;
 
-auto unexpected_throw_spec = describe("UnexpectedThrow", [] {
+auto unexpected_throw_spec = tag({"focus", "nihao"}).describe("UnexpectedThrow", [] {
   describe("#what", [] {
     it("says 'Unexpected exception: ${cause.what()}'", [] {
       UnexpectedThrow unexpected_throw(std::invalid_argument("root cause"));

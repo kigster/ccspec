@@ -3,6 +3,8 @@
 #include "ccspec/core/unexpected_throw.h"
 #include "ccspec/support/exception.h"
 
+#include "ccspec/core/example-group-manager.hpp"
+
 namespace ccspec {
 namespace core {
 
@@ -153,9 +155,11 @@ ExampleGroup* describe(string desc, function<void()> spec) {
 
   if (!groups_being_defined.empty()) {
     ExampleGroup* current_group = groups_being_defined.top();
-    current_group->addChild(example_group);
+    current_group->addChild(example_group);    
+  }else{
+    ExampleGroupManager::getInstance().add_top_example_group(example_group);
   }
-
+    
   groups_being_defined.push(example_group);
   spec();
   groups_being_defined.pop();
