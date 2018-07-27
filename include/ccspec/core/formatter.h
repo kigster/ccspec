@@ -10,7 +10,10 @@
 
 namespace ccspec {
 namespace core {
-
+struct summary_data{
+  int m_total;
+  int m_failed;  
+};
 class Formatter {
  public:
   virtual void exampleGroupStarted(std::string desc);
@@ -24,6 +27,8 @@ class Formatter {
   virtual void dumpFailures(
       const std::list<std::exception_ptr>& failures) const;
 
+  virtual void dump_message(const std::string& _message) const;
+  virtual void dump_summary(const summary_data& _data) const;
  protected:
   explicit Formatter(std::ostream&);
   virtual ~Formatter();

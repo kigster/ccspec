@@ -38,6 +38,19 @@ void TextFormatter::dumpFailures(const list<exception_ptr>& failures) const {
     outputException(failure);
 }
 
+void TextFormatter::dump_summary(const summary_data& _data) const{
+  output() << "total " << std::to_string(_data.m_total) << " examples." << std::endl;
+  int passed = _data.m_total - _data.m_failed;
+  if(passed > 0){
+    TerminalColor color(COLOR_GREEN);
+    output() <<  std::to_string(passed) << " examples passed." << std::endl;
+  }
+  if( _data.m_failed > 0){
+    TerminalColor color(COLOR_RED);
+    output() << std::to_string(_data.m_failed) << " examples failed." << std::endl;    
+  }  
+}
+
 // Protected methods.
 
 TextFormatter::TextFormatter(ostream& output) : Formatter(output) {}

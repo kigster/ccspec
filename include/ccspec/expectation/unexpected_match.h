@@ -50,7 +50,7 @@ std::string UnexpectedMatch<T, ConcreteMatcher>::desc(
     const T& actual_value,
     const Matcher<ConcreteMatcher>& matcher) {
   std::ostringstream s;
-  s << support::inspect(actual_value) << " should not " << matcher;
+  s <<  support::inspect(actual_value) << " should not " << matcher;
   return s.str();
 }
 

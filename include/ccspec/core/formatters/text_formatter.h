@@ -14,12 +14,12 @@ namespace formatters {
 
 class TextFormatter : public Formatter {
  public:
-  void afterEachHookFailed(std::exception_ptr failure) const override;
-  void afterAllHookFailed(std::exception_ptr failure) const override;
-  void aroundHookFailed(std::exception_ptr failure) const override;
-  void dumpFailures(
+  virtual void afterEachHookFailed(std::exception_ptr failure) const override;
+  virtual void afterAllHookFailed(std::exception_ptr failure) const override;
+  virtual void aroundHookFailed(std::exception_ptr failure) const override;
+  virtual void dumpFailures(
       const std::list<std::exception_ptr>& failures) const override;
-
+  virtual void dump_summary(const summary_data& _data) const override;
  protected:
   explicit TextFormatter(std::ostream&);
 

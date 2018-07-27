@@ -31,6 +31,9 @@ class Reporter {
 
   const std::vector<Formatter*> formatters_;
   std::list<std::exception_ptr> failures_;
+
+  int m_total_examples = 0;
+  int m_fail_examples = 0;
 };
 
 }  // namespace core

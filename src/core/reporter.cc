@@ -1,5 +1,4 @@
 #include "ccspec/core/reporter.h"
-
 namespace ccspec {
 namespace core {
 
@@ -30,6 +29,7 @@ void Reporter::exampleGroupFinished(string desc) const {
 void Reporter::examplePassed(
     string desc,
     const ExecutionResult& execution_result) {
+  m_total_examples += 1;
   for (auto formatter : formatters_)
     formatter->examplePassed(desc, execution_result);
 }
@@ -38,6 +38,9 @@ void Reporter::exampleFailed(
     string desc,
     const ExecutionResult& execution_result
 ) {
+
+  m_total_examples += 1;
+  m_fail_examples += 1;
   for (auto formatter : formatters_)
     formatter->exampleFailed(desc, execution_result);
   failures_.push_back(execution_result.exception());
@@ -60,10 +63,12 @@ void Reporter::aroundHookFailed(exception_ptr failure) {
 
 // Private methods.
 
-void Reporter::finish() const {
+void Reporter::finish() const {    
+  summary_data total_data = {m_total_examples, m_fail_examples};
   for (auto formatter : formatters_) {
     formatter->startDump();
-    formatter->dumpFailures(failures_);
+    formatter->dumpFailures(failures_);    
+    formatter->dump_summary(total_data);
   }
 }
 

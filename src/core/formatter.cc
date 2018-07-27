@@ -28,6 +28,10 @@ void Formatter::startDump() const {}
 
 void Formatter::dumpFailures(const list<exception_ptr>&) const {}
 
+void Formatter::dump_message(const std::string& _message) const{
+  output() << _message << std::endl;
+}
+void Formatter::dump_summary(const summary_data& _data) const {}
 // Protected methods.
 
 Formatter::Formatter(ostream& output) : output_(output) {}
@@ -37,6 +41,8 @@ Formatter::~Formatter() {}
 ostream& Formatter::output() const {
   return output_;
 }
+
+
 
 }  // namespace core
 }  // namespace ccspec
