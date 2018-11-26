@@ -9,9 +9,9 @@ if(APPLE)
   set(CMAKE_MACOSX_RPATH ON)
 endif()
 
-INCLUDE (CMakeForceCompiler)
-CMAKE_FORCE_C_COMPILER(clang Clang)
-CMAKE_FORCE_CXX_COMPILER(clang++ Clang)
+#INCLUDE (CMakeForceCompiler)
+#CMAKE_FORCE_C_COMPILER(clang Clang)
+#CMAKE_FORCE_CXX_COMPILER(clang++ Clang)
 
 # you can set llvm_lib_dir if the default clang is not working.
 #set(LLVM_LIB_DIR  /usr/lib/llvm-5.0)
