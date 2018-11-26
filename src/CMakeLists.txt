@@ -1,4 +1,4 @@
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z -stdlib=libc++ ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
 
 file(GLOB_RECURSE SRC "*.h" "*.cc")
 add_library(ccspec SHARED ${SRC})
