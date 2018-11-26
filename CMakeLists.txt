@@ -9,6 +9,15 @@ if(APPLE)
   set(CMAKE_MACOSX_RPATH ON)
 endif()
 
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -stdlib=libc++")
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+else ()
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+endif()
+
+
 #INCLUDE (CMakeForceCompiler)
 #CMAKE_FORCE_C_COMPILER(clang Clang)
 #CMAKE_FORCE_CXX_COMPILER(clang++ Clang)
